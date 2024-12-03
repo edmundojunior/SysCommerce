@@ -86,5 +86,23 @@ namespace Util
 
             return arqGeral;
         }
+
+        public string arquivoFdb(System.Windows.Forms.OpenFileDialog opfile)
+        {
+            string arqGeral = string.Empty;
+
+            opfile.Title = "Selecione o Banco de Dados";
+            opfile.Filter = "Arquivo (*.*)| *.*|" + "Arquivo  (*.fdb)|*.fdb";
+            opfile.FilterIndex = 2;
+            opfile.RestoreDirectory = true;
+            opfile.ReadOnlyChecked = true;
+            opfile.ShowReadOnly = true;
+
+            opfile.ShowDialog();
+
+            arqGeral = opfile.FileName;
+
+            return arqGeral;
+        }
     }
 }
