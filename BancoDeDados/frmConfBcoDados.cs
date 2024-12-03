@@ -32,9 +32,8 @@ namespace BancoDeDados
             Close();
         }
 
-        private void frmConfBcoDados_Load(object sender, EventArgs e)
-        {
-            func.ConfigurarPlaceholder(txtLogin, "Informe o Login");
+        private void frmConfBcoDados_Load(object sender, EventArgs e)       {
+            
 
             foreach (Control control in this.Controls)
             {
