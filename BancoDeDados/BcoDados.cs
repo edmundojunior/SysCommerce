@@ -33,7 +33,7 @@ namespace BancoDeDados
 
         #region Metodos
 
-        public bool salvarConfiguracaoBCO(BcoDados bcoDados)
+        public bool salvarConfiguracao(BcoDados bcoDados)
         {
 
             bool retorno = false;
@@ -74,11 +74,11 @@ namespace BancoDeDados
                     //Inclusão
 
                     XElement BcoDados = new XElement("BcoDados",
-                                        new XElement("servidor", bcoDados.datasource),
-                                        new XElement("porta", bcoDados.port),
-                                        new XElement("banco", bcoDados.database),
-                                        new XElement("login", bcoDados.user),
-                                        new XElement("senha", bcoDados.password)
+                                        new XElement("datasource", bcoDados.datasource),
+                                        new XElement("port", bcoDados.port),
+                                        new XElement("database", bcoDados.database),
+                                        new XElement("user", bcoDados.user),
+                                        new XElement("password", bcoDados.password)
                                         );
 
                     BcoDados.Save(arquivoConfg);
@@ -135,6 +135,7 @@ namespace BancoDeDados
             try
             {
 
+                if (dadosBancoDeDados ==null) return null;
 
                 string strConn = @"DataSource=" + dadosBancoDeDados.datasource
                                                                 + "; Database=" + dadosBancoDeDados.database
