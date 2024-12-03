@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkRepositorio = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblValidade = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,13 +45,12 @@
             this.lblCertificado = new System.Windows.Forms.Label();
             this.opfile = new System.Windows.Forms.OpenFileDialog();
             this.bntSalvar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCertificado = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,6 +88,16 @@
             this.label1.Size = new System.Drawing.Size(275, 45);
             this.label1.TabIndex = 1;
             this.label1.Text = "Certificado Digital";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CertDigital.Properties.Resources.certificado256;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -199,16 +209,6 @@
             this.bntSalvar.UseVisualStyleBackColor = true;
             this.bntSalvar.Click += new System.EventHandler(this.bntSalvar_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CertDigital.Properties.Resources.certificado256;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnCertificado
             // 
             this.btnCertificado.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -256,9 +256,9 @@
             this.Load += new System.EventHandler(this.frmCertificado_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

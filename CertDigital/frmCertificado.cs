@@ -33,6 +33,12 @@ namespace CertDigital
 
                 cert.thumbPrintCertificado = null;
 
+                if (chkRepositorio.Checked)
+                {
+                    cert.PathCertificadoDigital = null;
+                    cert.SenhaCertificadoDigital = null;
+                }
+
                 selecionarCertificado();
             }
             catch (ArgumentException ex)
@@ -66,7 +72,7 @@ namespace CertDigital
 
 
                 dados = cert.retornaDadosCertificado();
-                preenchendoCampo(dados);
+                if (dados.thumbprint !=null) preenchendoCampo(dados);
 
             }
             catch (ArgumentException ex)
@@ -81,7 +87,7 @@ namespace CertDigital
             try
             {
                 dados = cert.retornaDadosGravadosCertificado();
-                preenchendoCampo(dados);
+                if (dados.thumbprint != null)  preenchendoCampo(dados);
             }
             catch (ArgumentException ex)
             {
@@ -136,6 +142,18 @@ namespace CertDigital
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+
+
         }
     }
 }

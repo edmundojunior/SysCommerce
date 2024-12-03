@@ -145,18 +145,22 @@ namespace CertDigital
 
                 certificadoSelecionado();
 
-                dados.tipoCertificado = CertificadoSelecionadoField.IsA3() ? "A3" : "A1";
-                dados.arquivo = PathCertificadoDigital != null ? true : false;
-                dados.issuer = CertificadoSelecionadoField.Issuer;
-                dados.serialNumber = CertificadoSelecionadoField.SerialNumber;
-                dados.subject = CertificadoSelecionadoField.Subject;
-                dados.thumbprint = CertificadoSelecionadoField.Thumbprint;
-                dados.NotAfter = CertificadoSelecionadoField.NotAfter;
-                dados.NotBefore = CertificadoSelecionadoField.NotBefore;
-                dados.arquivoOriginal = PathCertificadoDigital == null ? "" : crypto.Criptografar(PathCertificadoDigital);
-                dados.certificadoBase64 = PathCertificadoDigital == null ? "" : crypto.ConverterArquivoParaBase64(PathCertificadoDigital);
-                dados.senhaCertificado = SenhaCertificadoDigital == null ? "" : crypto.Criptografar(SenhaCertificadoDigital);
+                if (CertificadoSelecionadoField != null)
+                {
 
+
+                    dados.tipoCertificado = CertificadoSelecionadoField.IsA3() ? "A3" : "A1";
+                    dados.arquivo = PathCertificadoDigital != null ? true : false;
+                    dados.issuer = CertificadoSelecionadoField.Issuer;
+                    dados.serialNumber = CertificadoSelecionadoField.SerialNumber;
+                    dados.subject = CertificadoSelecionadoField.Subject;
+                    dados.thumbprint = CertificadoSelecionadoField.Thumbprint;
+                    dados.NotAfter = CertificadoSelecionadoField.NotAfter;
+                    dados.NotBefore = CertificadoSelecionadoField.NotBefore;
+                    dados.arquivoOriginal = PathCertificadoDigital == null ? "" : crypto.Criptografar(PathCertificadoDigital);
+                    dados.certificadoBase64 = PathCertificadoDigital == null ? "" : crypto.ConverterArquivoParaBase64(PathCertificadoDigital);
+                    dados.senhaCertificado = SenhaCertificadoDigital == null ? "" : crypto.Criptografar(SenhaCertificadoDigital);
+                }
                 
             }
             else
@@ -179,7 +183,18 @@ namespace CertDigital
                 {
                     CertificadoSelecionadoField = new CertificadoDigital().AbrirTelaSelecao();
                     
-                    if (CertificadoSelecionadoField.IsA3()) CertificadoSelecionadoField.SetPinPrivateKey("");
+                    if (CertificadoSelecionadoField != null)
+                    {
+                        if (CertificadoSelecionadoField.IsA3()) CertificadoSelecionadoField.SetPinPrivateKey("");
+                    }
+                    else
+                    {
+                        CertificadoSelecionadoField = null;
+                        MessageBox.Show("Não foi selecinado um certificado válido", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        return;
+                    }
+                    
                     
                 }
                 else if (thumbPrintCertificado != null && (PathCertificadoDigital == null && SenhaCertificadoDigital == null))
@@ -196,7 +211,7 @@ namespace CertDigital
             catch (Exception ex)
             {
                 CertificadoSelecionadoField = null;
-                throw new ArgumentException("Ops! Ocorreu um problema ao selecionar o certificado digital\n" + ex.Message);
+                throw new ArgumentException("Ops! Ocorreu um problema ao selecionar o certificado digital [certificadoSelecionado()]\n" + ex.Message + "\n");
             }
         }
 
@@ -209,24 +224,26 @@ namespace CertDigital
             {
                 certificadoSelecionado();
 
-                dados.tipoCertificado = CertificadoSelecionadoField.IsA3() ? "A3" : "A1";
-                dados.arquivo = PathCertificadoDigital != null ? true : false;
-                dados.issuer = CertificadoSelecionadoField.Issuer;
-                dados.serialNumber = CertificadoSelecionadoField.SerialNumber;
-                dados.subject = CertificadoSelecionadoField.Subject;
-                dados.thumbprint = CertificadoSelecionadoField.Thumbprint;
-                dados.NotAfter   = CertificadoSelecionadoField.NotAfter;
-                dados.NotBefore = CertificadoSelecionadoField.NotBefore;
-                dados.arquivoOriginal = PathCertificadoDigital == null ? "" : crypto.Criptografar(PathCertificadoDigital);
-                dados.certificadoBase64 = PathCertificadoDigital == null ? "" : crypto.ConverterArquivoParaBase64(PathCertificadoDigital);
-                dados.senhaCertificado = SenhaCertificadoDigital == null ? "" :   crypto.Criptografar(SenhaCertificadoDigital);              
-                
+                if (CertificadoSelecionadoField != null)
+                {
+                    dados.tipoCertificado = CertificadoSelecionadoField.IsA3() ? "A3" : "A1";
+                    dados.arquivo = PathCertificadoDigital != null ? true : false;
+                    dados.issuer = CertificadoSelecionadoField.Issuer;
+                    dados.serialNumber = CertificadoSelecionadoField.SerialNumber;
+                    dados.subject = CertificadoSelecionadoField.Subject;
+                    dados.thumbprint = CertificadoSelecionadoField.Thumbprint;
+                    dados.NotAfter = CertificadoSelecionadoField.NotAfter;
+                    dados.NotBefore = CertificadoSelecionadoField.NotBefore;
+                    dados.arquivoOriginal = PathCertificadoDigital == null ? "" : crypto.Criptografar(PathCertificadoDigital);
+                    dados.certificadoBase64 = PathCertificadoDigital == null ? "" : crypto.ConverterArquivoParaBase64(PathCertificadoDigital);
+                    dados.senhaCertificado = SenhaCertificadoDigital == null ? "" : crypto.Criptografar(SenhaCertificadoDigital);
+                }                
 
             }
             catch(Exception ex)
             {
                 dados = null;
-                throw new ArgumentException("Ops! Ocorreu um problema ao retornar os dados do certificado"+ ex.Message);
+                throw new ArgumentException("Ops! Ocorreu um problema ao retornar os dados do certificado [retornaDadosCertificado]\n" + ex.Message + "\n");
             }
 
             return dados;
@@ -262,7 +279,7 @@ namespace CertDigital
             catch (Exception ex)
             {
                 cert = null;
-                throw new ArgumentException("Ops! Ocorreu um problema ao retornar os dados do certificado" + ex.Message);
+                throw new ArgumentException("Não foi encontrado nenhum Certificado Digital encontrado\n" + ex.Message + "\n");
             }
 
             return cert;

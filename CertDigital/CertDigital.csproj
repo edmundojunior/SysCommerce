@@ -86,6 +86,12 @@
     <Compile Include="frmCertificado.Designer.cs">
       <DependentUpon>frmCertificado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRetornoDFe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRetornoDFe.Designer.cs">
+      <DependentUpon>frmRetornoDFe.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSenhaCert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="selecionarCertificado.cs" />
     <EmbeddedResource Include="frmCertificado.resx">
       <DependentUpon>frmCertificado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRetornoDFe.resx">
+      <DependentUpon>frmRetornoDFe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSenhaCert.resx">
       <DependentUpon>frmSenhaCert.cs</DependentUpon>
@@ -132,6 +141,9 @@
     <None Include="Resources\key_.png" />
     <None Include="Resources\tick.png" />
     <None Include="Resources\save_32.png" />
+    <None Include="Resources\pessoatriste.png" />
+    <None Include="Resources\PessoaFeliz.png" />
+    <None Include="Resources\logoCommerceedmAmarelo.png" />
     <Content Include="unimake.ico" />
   </ItemGroup>
   <ItemGroup>
