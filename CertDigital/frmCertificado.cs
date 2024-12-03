@@ -14,7 +14,8 @@ namespace CertDigital
 {
     public partial class frmCertificado : Form
     {
-        selecionarCertificado cert = new selecionarCertificado();
+        Certificado_Digital cert = new Certificado_Digital();
+        Criptografia crypto = new Criptografia();
         dadosCertificado dados= new dadosCertificado();
         ArquivosEPastas selec = new ArquivosEPastas();      
 
@@ -26,37 +27,79 @@ namespace CertDigital
 
         private void btnCertificado_Click(object sender, EventArgs e)
         {
-            cert.CertificadoSelecionadoField = null;
+            try
+            {
+                cert.CertificadoSelecionadoField = null;
 
-            selecionarCertificado();
+                cert.thumbPrintCertificado = null;
+
+                selecionarCertificado();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
         }
+        
+        
 
-        private void retornaCertificado()
-
+        private void selecionarCertificado()
         {
-            //Buscar certificado selecionado
-            string arqv = selec.retornaPastaPadrao();
-            arqv += "ConfiguracaoCertificadoDigital.xml";
 
-            if (File.Exists(arqv))
+            try
             {
-
-                dados = cert.retornarCertificadoSelecionado(arqv);
-
-                if (cert.PathCertificadoDigital != null)
+                if (chkRepositorio.Checked == false)
                 {
-                    lblCertificado.Text = cert.PathCertificadoDigital;
+
+                    cert.PathCertificadoDigital = selec.arquivoPfx(opfile);
+
+                    frmSenhaCert frm = new frmSenhaCert();
+                    frm.ShowDialog();
+
+                    cert.SenhaCertificadoDigital = frm.senhaInformada;
                 }
-                else
-                {
-                    lblCertificado.Text = dados.subject;
-                }        
 
+
+                dados = cert.retornaDadosCertificado();
+                preenchendoCampo(dados);
+
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void frmCertificado_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                dados = cert.retornaDadosGravadosCertificado();
+                preenchendoCampo(dados);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void preenchendoCampo(dadosCertificado dados)
+        {
+            try
+            {
+                lblCertificado.Text = (dados.arquivoOriginal == "" || dados.arquivoOriginal == null) ? dados.subject : crypto.Descriptografar(dados.arquivoOriginal);
+                lblSerialNumber.Text = dados.serialNumber;
+                lblThumbprint.Text = dados.thumbprint;
+                chkRepositorio.Checked = !dados.arquivo;
+
+
+                cert.retornaVencimento(dados.NotAfter);
 
                 string mensagemVencimento = string.Empty;
                 if (cert.VencimentoCertificadoDigial >= 0)
@@ -65,67 +108,34 @@ namespace CertDigital
                 }
                 else
                 {
-                    mensagemVencimento += "Cerificado vencido a" + (cert.VencimentoCertificadoDigial * (-1)).ToString();
+                    mensagemVencimento += "Cerificado vencido a " + (cert.VencimentoCertificadoDigial * (-1)).ToString() + " Dia(s)";
                 }
 
                 lblValidade.Text = "de: " + dados.NotBefore.ToString() + " à " + dados.NotAfter.ToString() + "\n " + mensagemVencimento;
-
-                lblThumbprint.Text = dados.thumbprint;
-                lblSerialNumber.Text = dados.serialNumber;
-
             }
-
-            
-        }
-
-        private void selecionarCertificado()
-        {
-            if (chkRepositorio.Checked == false) {
-
-                cert.PathCertificadoDigital = selec.arquivoPfx(opfile);
-
-                frmSenhaCert frm = new frmSenhaCert();
-                frm.ShowDialog();
-
-                cert.SenhaCertificadoDigital = frm.senhaInformada;
-
-                dados = cert.retornaCertificado(true, cert.PathCertificadoDigital, cert.SenhaCertificadoDigital);
-
-                lblCertificado.Text = cert.PathCertificadoDigital;
-            }
-            else {
-
-
-                dados = cert.retornaCertificado(false, cert.PathCertificadoDigital, cert.SenhaCertificadoDigital);
-
-                lblCertificado.Text = dados.subject;
-            }
-
-            string mensagemVencimento =string.Empty;    
-            if (cert.VencimentoCertificadoDigial >= 0)
+            catch (ArgumentException ex)
             {
-                mensagemVencimento += cert.VencimentoCertificadoDigial.ToString() + " Dia(s) para o Vencimento ";
+                MessageBox.Show(ex.Message);
             }
-            else
-            {
-                mensagemVencimento += "Cerificado vencido a" + (cert.VencimentoCertificadoDigial * (-1)).ToString();
-            }
-            
-            lblValidade.Text = "de: " + dados.NotBefore.ToString() + " à " + dados.NotAfter.ToString() + "\n " + mensagemVencimento;
 
-            lblThumbprint.Text = dados.thumbprint;
-            lblSerialNumber.Text = dados.serialNumber;
-
-        }
-
-        private void frmCertificado_Load(object sender, EventArgs e)
-        {
-            retornaCertificado();
         }
 
         private void lblCertificado_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bntSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cert.salvarXmlCertificado(dados);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

@@ -131,6 +131,7 @@
     <None Include="Resources\certificado32.png" />
     <None Include="Resources\key_.png" />
     <None Include="Resources\tick.png" />
+    <None Include="Resources\save_32.png" />
     <Content Include="unimake.ico" />
   </ItemGroup>
   <ItemGroup>

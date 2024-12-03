@@ -65,6 +65,9 @@ namespace Util
 
         public string  ConverterBase64ParaArquivo(string base64String, string caminhoDestino)
         {
+            if (File.Exists(caminhoDestino)) File.Delete(caminhoDestino);
+
+            
             byte[] arquivoBytes = Convert.FromBase64String(base64String);
             File.WriteAllBytes(caminhoDestino, arquivoBytes);
 
