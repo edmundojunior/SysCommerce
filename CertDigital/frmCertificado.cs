@@ -72,7 +72,7 @@ namespace CertDigital
 
 
                 dados = cert.retornaDadosCertificado();
-                if (dados.thumbprint !=null) preenchendoCampo(dados);
+                if (dados !=null) preenchendoCampo(dados);
 
             }
             catch (ArgumentException ex)
@@ -87,7 +87,7 @@ namespace CertDigital
             try
             {
                 dados = cert.retornaDadosGravadosCertificado();
-                if (dados.thumbprint != null)  preenchendoCampo(dados);
+                if (dados != null)  preenchendoCampo(dados);
             }
             catch (ArgumentException ex)
             {

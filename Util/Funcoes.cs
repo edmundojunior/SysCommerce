@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Util
@@ -37,5 +39,40 @@ namespace Util
             };
         }
 
+        public string ObterVersaoDoProjeto()
+        {
+            // Obtém a versão do assembly atual
+            return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+
+        
+        public string limparExpressaoString(string valor)
+        {
+
+            try
+            {
+                valor = Regex.Replace(valor, @"[.,\\//-]", "");
+            }
+            catch
+            {
+
+                throw new ArgumentException($"Ocorreu um problema oa remover caracteres especiais '{valor}'");
+
+            }
+
+            return valor;
+        }
+
+        public  (DateTime primeiroDia, DateTime ultimoDia) ObterPrimeiroEUltimoDiaDoMes(DateTime data)
+        {
+            var primeiroDia = new DateTime(data.Year, data.Month, 1);
+            var ultimoDia = primeiroDia.AddMonths(1).AddDays(-1);
+            return (primeiroDia, ultimoDia);
+        }
+
+        public  string ObterDataAtualPorExtenso()
+        {
+            return DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy", new System.Globalization.CultureInfo("pt-BR"));
+        }
     }
 }
