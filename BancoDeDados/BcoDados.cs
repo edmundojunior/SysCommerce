@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FirebirdSql.Data.FirebirdClient;
+using FirebirdSql.Data.Isql;
 using Util;
 using System.Data;
 using System.Reflection;
@@ -188,7 +189,26 @@ namespace BancoDeDados
             return retorno;
         }
 
+        public FbTransaction iniciarTransacao(FbConnection conn)
+        {
+            FbTransaction transaction;
 
+
+            try
+            {
+
+                transaction = conn.BeginTransaction();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível iniciar a Transação!\n" + ex.Message, "Aviso Importante");
+                transaction = null;
+
+
+            }
+
+            return transaction;
+        }
         public bool testeDeConexao()
         {
             bool retorno = false;
@@ -205,6 +225,65 @@ namespace BancoDeDados
             return retorno;
 
         }
+
+        #endregion
+
+        #region Criar Banco de Dados
+
+        public void criarAtualizarTabela(BcoDados bco, string nomeTabela,System.Windows.Forms.ListBox lstProcessando)
+        {
+            lstProcessando.Items.Add("Criando Tabela");
+            lstProcessando.Refresh();
+            lstProcessando.TopIndex = lstProcessando.Items.Count - 1;
+
+
+
+        }
+        public void criarBancodeDados(BcoDados bco, System.Windows.Forms.ListBox lstProcessando)
+        {
+            
+            //lstProcessando.Items.Clear();
+
+            try
+            {
+                if (!File.Exists(bco.database))
+                {
+                    var connectionString = new FbConnectionStringBuilder
+                    {
+                        Database = bco.database,                        
+                        UserID = bco.user,
+                        Password = bco.password                        
+                    }.ToString();
+                       
+                    FbConnection.CreateDatabase(connectionString);
+
+                    lstProcessando.Items.Add("Conexao ao Banco de Dados Executada com Sucesso!");
+                    lstProcessando.Refresh();
+                    lstProcessando.TopIndex = lstProcessando.Items.Count - 1;
+
+                    //Criar ou Atualizar tabelas
+                    criarAtualizarTabela(bco, lstProcessando);
+
+                }
+                else
+                {
+                    lstProcessando.Items.Add("Banco de Dados já existe");
+                    lstProcessando.Refresh();
+                    lstProcessando.TopIndex = lstProcessando.Items.Count - 1;
+                    criarAtualizarTabela(bco, lstProcessando);
+                }
+            } catch(Exception ex)
+            {
+
+                lstProcessando.Items.Add(ex.Message);
+                lstProcessando.Refresh();
+                lstProcessando.TopIndex = lstProcessando.Items.Count - 1;
+
+
+            }
+            
+        }
+
 
         #endregion
 

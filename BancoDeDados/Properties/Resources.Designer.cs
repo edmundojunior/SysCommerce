@@ -63,6 +63,16 @@ namespace BancoDeDados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bco_24 {
+            get {
+                object obj = ResourceManager.GetObject("bco_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap conexao {
             get {
                 object obj = ResourceManager.GetObject("conexao", resourceCulture);
@@ -86,6 +96,16 @@ namespace BancoDeDados.Properties {
         internal static System.Drawing.Bitmap pasta {
             get {
                 object obj = ResourceManager.GetObject("pasta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap play_32 {
+            get {
+                object obj = ResourceManager.GetObject("play_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

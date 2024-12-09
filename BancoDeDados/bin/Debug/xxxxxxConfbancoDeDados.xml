@@ -2,7 +2,7 @@
 <BcoDados>
   <datasource>localhost</datasource>
   <port>3050</port>
-  <database>C:\EDM\TESTE.FDB</database>
-  <user>SYSDBA</user>
+  <database>C:\EDM\Base\QUESTOR_EMPRESA_107.FDB</database>
+  <user>sysdba</user>
   <password>yHR8LsZJGk9uM+VJ0S38Mw==</password>
 </BcoDados>

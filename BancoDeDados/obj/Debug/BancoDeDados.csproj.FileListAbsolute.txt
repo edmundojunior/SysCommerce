@@ -13,3 +13,4 @@ C:\EDM\SysCommerce\BancoDeDados\obj\Debug\BancoDeDados.csproj.CoreCompileInputs.
 C:\EDM\SysCommerce\BancoDeDados\obj\Debug\BancoDeD.B77FD34E.Up2Date
 C:\EDM\SysCommerce\BancoDeDados\obj\Debug\BancoDeDados.exe
 C:\EDM\SysCommerce\BancoDeDados\obj\Debug\BancoDeDados.pdb
+C:\EDM\SysCommerce\BancoDeDados\obj\Debug\BancoDeDados.frmManutencaoBcoDados.resources

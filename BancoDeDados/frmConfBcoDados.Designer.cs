@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfBcoDados));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,12 +42,13 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPorta = new System.Windows.Forms.TextBox();
             this.txtBcoDados = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.opfile = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bntSalvar = new System.Windows.Forms.Button();
             this.btnTesteConexao = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.opfile = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,16 +72,6 @@
             this.label1.Size = new System.Drawing.Size(414, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Configuração do Banco de Dados";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BancoDeDados.Properties.Resources.LogoBancoDeDados;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -180,17 +170,31 @@
             this.txtBcoDados.Size = new System.Drawing.Size(375, 27);
             this.txtBcoDados.TabIndex = 1;
             // 
+            // opfile
+            // 
+            this.opfile.FileName = "openFileDialog1";
+            // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Image = global::BancoDeDados.Properties.Resources.pasta;
-            this.button1.Location = new System.Drawing.Point(528, 145);
+            this.button1.Image = global::BancoDeDados.Properties.Resources.bco_24;
+            this.button1.Location = new System.Drawing.Point(524, 145);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 30);
+            this.button1.Size = new System.Drawing.Size(37, 32);
             this.button1.TabIndex = 16;
             this.toolTip1.SetToolTip(this.button1, "Selecionar o Banco de Dados");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BancoDeDados.Properties.Resources.LogoBancoDeDados;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // bntSalvar
             // 
@@ -227,10 +231,6 @@
             this.toolTip1.SetToolTip(this.btnSair, "Encerrar Formulário");
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // opfile
-            // 
-            this.opfile.FileName = "openFileDialog1";
             // 
             // frmConfBcoDados
             // 
