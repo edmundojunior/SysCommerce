@@ -60,16 +60,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(613, 76);
+            this.panel1.Size = new System.Drawing.Size(582, 76);
             this.panel1.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(79, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(495, 45);
+            this.label1.Size = new System.Drawing.Size(414, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Configuração do Banco de Dados";
             // 
@@ -137,37 +137,37 @@
             // 
             this.txtServidor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtServidor.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServidor.Location = new System.Drawing.Point(150, 102);
+            this.txtServidor.Location = new System.Drawing.Point(144, 102);
             this.txtServidor.Name = "txtServidor";
-            this.txtServidor.Size = new System.Drawing.Size(347, 27);
+            this.txtServidor.Size = new System.Drawing.Size(312, 27);
             this.txtServidor.TabIndex = 0;
             // 
             // txtSenha
             // 
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSenha.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(150, 303);
+            this.txtSenha.Location = new System.Drawing.Point(144, 303);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(173, 27);
+            this.txtSenha.Size = new System.Drawing.Size(138, 27);
             this.txtSenha.TabIndex = 4;
             // 
             // txtLogin
             // 
             this.txtLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLogin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin.Location = new System.Drawing.Point(150, 259);
+            this.txtLogin.Location = new System.Drawing.Point(144, 259);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(326, 27);
+            this.txtLogin.Size = new System.Drawing.Size(291, 27);
             this.txtLogin.TabIndex = 3;
             // 
             // txtPorta
             // 
             this.txtPorta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPorta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorta.Location = new System.Drawing.Point(150, 197);
+            this.txtPorta.Location = new System.Drawing.Point(144, 197);
             this.txtPorta.Name = "txtPorta";
-            this.txtPorta.Size = new System.Drawing.Size(85, 27);
+            this.txtPorta.Size = new System.Drawing.Size(50, 27);
             this.txtPorta.TabIndex = 2;
             this.txtPorta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -175,16 +175,16 @@
             // 
             this.txtBcoDados.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBcoDados.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBcoDados.Location = new System.Drawing.Point(150, 147);
+            this.txtBcoDados.Location = new System.Drawing.Point(144, 147);
             this.txtBcoDados.Name = "txtBcoDados";
-            this.txtBcoDados.Size = new System.Drawing.Size(410, 27);
+            this.txtBcoDados.Size = new System.Drawing.Size(375, 27);
             this.txtBcoDados.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Image = global::BancoDeDados.Properties.Resources.pasta;
-            this.button1.Location = new System.Drawing.Point(562, 145);
+            this.button1.Location = new System.Drawing.Point(528, 145);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 30);
             this.button1.TabIndex = 16;
@@ -196,7 +196,7 @@
             // 
             this.bntSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bntSalvar.Image = global::BancoDeDados.Properties.Resources.save_32;
-            this.bntSalvar.Location = new System.Drawing.Point(334, 342);
+            this.bntSalvar.Location = new System.Drawing.Point(450, 256);
             this.bntSalvar.Name = "bntSalvar";
             this.bntSalvar.Size = new System.Drawing.Size(120, 80);
             this.bntSalvar.TabIndex = 9;
@@ -208,7 +208,7 @@
             // 
             this.btnTesteConexao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTesteConexao.Image = global::BancoDeDados.Properties.Resources.conexao;
-            this.btnTesteConexao.Location = new System.Drawing.Point(338, 303);
+            this.btnTesteConexao.Location = new System.Drawing.Point(284, 303);
             this.btnTesteConexao.Name = "btnTesteConexao";
             this.btnTesteConexao.Size = new System.Drawing.Size(40, 27);
             this.btnTesteConexao.TabIndex = 8;
@@ -220,7 +220,7 @@
             // 
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.Image = global::BancoDeDados.Properties.Resources.porta2;
-            this.btnSair.Location = new System.Drawing.Point(476, 342);
+            this.btnSair.Location = new System.Drawing.Point(450, 342);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 80);
             this.btnSair.TabIndex = 7;
@@ -236,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 451);
+            this.ClientSize = new System.Drawing.Size(582, 431);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBcoDados);
             this.Controls.Add(this.txtPorta);
